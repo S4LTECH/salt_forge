@@ -21,9 +21,10 @@ app.get('/analisar', async (req, res) => {
 
   try {
     browser = await puppeteer.launch({
-      headless: true,
-      args: ['--no-sandbox', '--disable-setuid-sandbox']
-    });
+    executablePath: '/usr/bin/google-chrome-stable',
+    args: ['--no-sandbox', '--disable-setuid-sandbox'],
+    headless: true
+  });
 
     const page = await browser.newPage();
     await page.setUserAgent('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, como Gecko) Chrome/117.0.0.0 Safari/537.36');
